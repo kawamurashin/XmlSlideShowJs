@@ -11,8 +11,12 @@ class ControllerManager extends createjs.Container{
 
     init()
     {
+        let eventHandler = (event) => {
+            this.modelHandleFileCompleteHandler(event)
+        };
+
         this._modelManager = new ModelManager();
-        this._modelManager.addEventListener('load_complete', this.modelHandleFileCompleteHandler);
+        this._modelManager.addEventListener('load_complete', eventHandler);
 
         this._viewManager = new ViewManager();
         this.addChild(this._viewManager);
@@ -21,9 +25,11 @@ class ControllerManager extends createjs.Container{
     }
 
 
+
     modelHandleFileCompleteHandler(event)
     {
-        console.log("modelHandleFileComplete");
+        var sceneDataList = this._modelManager.sceneDataList;
+        this._viewManager.loadComplete(sceneDataList);
     }
 
 }
