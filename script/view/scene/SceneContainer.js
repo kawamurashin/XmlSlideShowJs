@@ -10,10 +10,10 @@ class SceneContainer extends createjs.Container {
         this._imageCount;
         this._sceneData;
         this._backgroundContainer = new createjs.Container();
+        this.addChild(this._backgroundContainer);
         //
         this._bitmap;
         this._removeBitmap;
-        this.addChild(this._backgroundContainer);
     }
     //public
     setSceneData(sceneData)
@@ -83,5 +83,4 @@ class SceneContainer extends createjs.Container {
             this.addImage();
         }
     }
-
 }

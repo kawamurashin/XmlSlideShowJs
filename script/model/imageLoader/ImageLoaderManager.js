@@ -43,7 +43,9 @@ class ImageLoaderManager extends createjs.Container{
 
     imageLoadCompleteHandler(event)
     {
+
         var image = event.result;
+
         var imageData = this._sceneDataList[this._sceneCount].imageDataList[this._imageCount];
         imageData.setImage(image);
 
